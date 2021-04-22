@@ -1,80 +1,81 @@
-/* Radios and checkboxes */
-input[type=radio],
-input[type=checkbox] {
- position: absolute;
- top: auto;
- overflow: hidden;
- clip: rect(1px 1px 1px 1px); /* IE 6/7 */
- clip: rect(1px, 1px, 1px, 1px);
- width: 1px;
- height: 1px;
- white-space: nowrap;
+/* Radios and checkboxes will be hidden */
+.radio-button[type=radio],
+.checkbox[type=checkbox] {
+  position: absolute;
+  top: auto;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
 }
 
-input[type=radio] + label,
-input[type=checkbox] + label {
- padding: .5em;
- padding-left: 2em;
- max-width: calc(100% - 2em);
+/**
+ * Use the before pseudo-element to customize the radios and checkboxes.
+ */
+.radio-button[type=radio] + label:before,
+.checkbox[type=checkbox] + label:before {
+  content: '';
+  background: #fff;
+  background-color: rgba(255, 255, 255, .8);
+  border: 1px solid black;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+  vertical-align: middle;
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
 }
 
-input[type=radio] + label:before,
-input[type=checkbox] + label:before {
- content: '';
- background: #fff;
- background-color: rgba(255, 255, 255, .8);
- display: block;
- float: left;
- width: .9em;
- height: .9em;
- margin-left: -1.5em;
- margin-top: .1em;
- vertical-align: top;
- cursor: pointer;
- text-align: center;
- -webkit-transition: all .1s ease-out;
- transition: all .1s ease-out;
+.radio-button[type=radio]:focus + label:before,
+.checkbox[type=checkbox]:focus + label:before {
+  border-color: #86b7fe;
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(13 110 253 / 25%);
 }
 
-input[type=radio] + label:before {
- border-radius: 100%;
+.radio-button[type=radio]:disabled + label:before,
+.checkbox[type=checkbox]:disabled + label:before {
+  border: .1em solid rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .1);
 }
 
-input[type=radio]:disabled + label:before,
-input[type=checkbox]:disabled + label:before {
- border: .1em solid rgba(0, 0, 0, .1);
- background-color: rgba(0, 0, 0, .1);
+.radio-button[type=radio]:disabled + label,
+.checkbox[type=checkbox]:disabled + label {
+  color: #ccc;
 }
 
-input[type=radio]:disabled + label,
-input[type=checkbox]:disabled + label {
- color: #ccc;
+/**
+ * CHECKBOX
+ *
+ * Customize its styles here...
+ */
+.checkbox[type=checkbox] + label:before {
+  // Custom styles only for the checkbox...
 }
 
-input[type=checkbox] + label:before,
-input[type=radio] + label:before {
- content: '';
- width: 15px;
- height: 15px;
- background-size: 15px 15px;
- background-repeat: no-repeat;
- text-align: center;
- line-height: 1.15;
- color: rgba(0, 0, 255, 0);
+/** Checked **/
+.checkbox[type=checkbox]:checked + label:before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+  background-color: #0d6efd;
+  border-color: #0d6efd;
 }
 
-input[type=checkbox] + label:before {
- background-image: image-url('icons/ic_checkbox_unchecked');
+/**
+ * RADIO BUTTON
+ *
+ * Customize its styles here...
+ */
+.radio-button[type=radio] + label:before {
+  border-radius: 100%;
+  // Custom styles only for the radio...
 }
 
-input[type=radio] + label:before {
- background-image: image-url('icons/ic_radio_unchecked');
-}
-
-input[type=checkbox]:checked + label:before {
- background-image: image-url('icons/ic_checkbox_checked');
-}
-
-input[type=radio]:checked + label:before {
- background-image: image-url('icons/ic_radio_checked');
+/** Checked **/
+.radio-button[type=radio]:checked + label:before {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+  background-color: #0d6efd;
+  border-color: #0d6efd;
 }
