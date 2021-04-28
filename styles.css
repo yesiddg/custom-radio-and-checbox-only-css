@@ -53,7 +53,7 @@
  * Customize its styles here...
  */
 .checkbox[type=checkbox] + label:before {
-  // Custom styles only for the checkbox...
+  /* Custom styles only for the checkbox... */
 }
 
 /** Checked **/
@@ -70,7 +70,7 @@
  */
 .radio-button[type=radio] + label:before {
   border-radius: 100%;
-  // Custom styles only for the radio...
+  /* Custom styles only for the radio... */
 }
 
 /** Checked **/
